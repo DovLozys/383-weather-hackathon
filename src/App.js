@@ -10,8 +10,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("london");
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
-  const [latitude, setLatitude] = useState(51.5085);
-  const [longitude, setLongitude] = useState(-0.1257);
+  const [cordinates, setCordinates] = useState({});
   const [weeklyForecast, setWeeklyForecast] = useState([]);
 
   const handleChange = (e) => {
@@ -37,6 +36,7 @@ function App() {
       );
       const data = await response.json();
       setData(data);
+      setCordinates(data.coord);
       setIsLoading(false);
       console.log(data);
     }
