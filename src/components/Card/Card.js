@@ -9,7 +9,7 @@ function Card({ dailyForecast }) {
     dailyForecast.dt * 1000
   );
   const iconURL = `http://openweathermap.org/img/wn/${dailyForecast.weather[0].icon}@2x.png`;
-  //   console.log(date);
+
   return (
     <div className={css.card}>
       <div className={css.cardHeader}>

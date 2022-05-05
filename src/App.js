@@ -1,6 +1,9 @@
-import css from "./App.module.css";
 import { useState } from "react";
 import useFetch from "react-fetch-hook";
+
+import Card from './components/Card/Card'
+
+import css from "./App.module.css";
 
 function App() {
   const [searchInput, setSearchInput] = useState("");
@@ -35,6 +38,13 @@ function App() {
   return (
     <div className={css.App}>
       <h1>383 Weather App</h1>
+      <main className="container">
+        {!weeklyForecast.isLoading && 
+          weeklyForecast.data.daily.map((day) => {
+            return <Card dailyForecast={day} />
+          })
+        }
+      </main>
     </div>
   );
 }
