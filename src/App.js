@@ -24,10 +24,8 @@ function App() {
   }
 
   async function getWeeklyForecast(coords) {
-    console.log("Coords", coords)
     const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&exclude=current,minutely,hourly&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`);
     const data = await res.json();
-    console.log("Data: ", data);
     setForecastData(data.daily);
   }
 
