@@ -38,8 +38,8 @@ function DetailedCard({ dailyForecast }) {
               {Math.round(dailyForecast.temp.day)}°C
             </p>
             <div className={css.minmax}>
-              <p>Max: {dailyForecast.temp.max}</p>
-              <p>Min: {dailyForecast.temp.min}</p>
+              <p>Max: {Math.round(dailyForecast.temp.max)}</p>
+              <p>Min: {Math.round(dailyForecast.temp.min)}</p>
             </div>
             <div className={css.suntimes}>
               <p>
