@@ -4,17 +4,22 @@
   /* background: -webkit-linear-gradient(to right, #2ebf91, #5b18d6);  Chrome 10-25, Safari 5.1-6 */
   /* background: linear-gradient(to right, #059cbd, #5d16e1); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-
-  
-  color:antiquewhite;
+  color: antiquewhite;
   min-height: 100vh;
   padding: 2em;
 
   /*gradient animation*/
-  background: linear-gradient(86deg, #180a4e, #3718b1, #4056d8, #3a86bd, #24a1c4, #fafa02);
+  background: linear-gradient(
+    86deg,
+    #180a4e,
+    #3718b1,
+    #4056d8,
+    #3a86bd,
+    #24a1c4,
+    #fafa02
+  );
   background-size: 400% 400%;
   animation: gradient 40s ease infinite;
-  
 }
 
 @keyframes gradient {
@@ -28,34 +33,46 @@
     background-position: 0% 50%;
   }
 }
-.userInput{
+.userInput {
   height: 2em;
   margin: 0 1em;
   border-radius: 6px;
   border: none;
-  box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.75);
-
+  box-shadow: 4px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 4px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 3px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.searchButton{
+.searchButton {
   padding: 0.5em 1em;
   border-radius: 6px;
   background-color: rgb(152, 253, 0);
   color: rgb(75, 74, 74);
   font-weight: 600;
   border: none;
-  box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 4px 3px 5px 0px rgba(0,0,0,0.75);
-
+  box-shadow: 4px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 4px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 3px 5px 0px rgba(0, 0, 0, 0.75);
 }
-.placeName{
+.placeName {
   color: yellow;
   font-size: 2em;
   text-transform: capitalize;
   text-decoration: underline;
   text-underline-offset: 0.2em;
   /* font-family: 'Alegreya Sans SC', sans-serif; */
+}
+
+@media only screen and (min-width: 700px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
