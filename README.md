@@ -23,7 +23,7 @@ The demo can be viewed here : LINK
    npm install
    ```
 
-5. [Register an account at OpenWeather](https://openweathermap.org/) and generate an API key. You can find the API key in my API key section of the website.
+5. [Register an account at OpenWeather](https://openweathermap.org/) and generate an API key for your account.
 6. Create an `.env` file in the root of the project
 7. Include the following environment variables in the `.env` file:
 
@@ -38,8 +38,6 @@ The demo can be viewed here : LINK
   ```sh
   npm start
   ```
-
-```
 
 - If not automatically redirected on the browser, go to the following address.
 
@@ -59,7 +57,6 @@ http://localhost:3000
 - Scott Wilson
 - Troy Webber
 
-
 ## Version History
 
 - 1
@@ -74,5 +71,7 @@ Inspiration, code snippets, etc.
 - [node.js](https://nodejs.org/en/)
 - [React.js](https://reactjs.org/)
 - [OpenWeather API](https://openweathermap.org/)
+
+```
 
 ```
