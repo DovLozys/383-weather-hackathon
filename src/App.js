@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import Card from './components/Card/Card'
+import Card from "./components/Card/Card";
 
 import css from "./App.module.css";
 
@@ -47,8 +47,7 @@ function App() {
         <input type="text" placeholder="enter town/post code" className={css.userInput} onChange={handleInputChange}/>
         <button type="submit" className={css.searchButton}>Submit</button>
       </form>
-      <main className="container">
-        {console.log("Forecast data: ", forecastData)}
+      <main className={css.container}>
         {forecastData && 
           forecastData.map((day) => {
             return <Card dailyForecast={day} />

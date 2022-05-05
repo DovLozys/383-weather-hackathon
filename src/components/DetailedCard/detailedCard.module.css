@@ -1,0 +1,28 @@
+.modal{
+text-align: center;
+/* background-color: blueviolet; */
+margin: 0;
+border-radius: 10px;
+}
+
+.modalHeader{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(53, 53, 53);
+}
+.modalBody{
+    background: linear-gradient(86deg, #180a4e, #3718b1, #4056d8, #3a86bd, #24a1c4, #fafa02);
+    color: white;
+   
+   
+}
+
+.cardWeatherInfo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
