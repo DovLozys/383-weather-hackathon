@@ -71,7 +71,3 @@ Inspiration, code snippets, etc.
 - [node.js](https://nodejs.org/en/)
 - [React.js](https://reactjs.org/)
 - [OpenWeather API](https://openweathermap.org/)
-
-```
-
-```
