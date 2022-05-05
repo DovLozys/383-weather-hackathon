@@ -1,5 +1,4 @@
-import { useState } from "react";
-import useFetch from "react-fetch-hook";
+import { useState, useEffect } from "react";
 
 import Card from './components/Card/Card'
 
@@ -8,39 +7,50 @@ import css from "./App.module.css";
 function App() {
   const [searchInput, setSearchInput] = useState("");
   const [searchTerm, setSearchTerm] = useState("london");
-  const [isLoading, setIsLoading] = useState(true);
-  const [latitude, setLatitude] = useState(51.5085);
-  const [longitude, setLongitude] = useState(-0.1257);
+  const [forecastData, setForecastData] = useState(null)
 
-  const handleChange = (e) => {
-    setSearchInput(e.target.value);
+  useEffect(() => {
+    getCoordinates();
+  }, []);
+
+  useEffect(() => {
+    getCoordinates();
+  }, [searchTerm]);
+
+  async function getCoordinates() {
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`);
+    const data = await res.json();
+    getWeeklyForecast(data.coord);
+  }
+
+  async function getWeeklyForecast(coords) {
+    console.log("Coords", coords)
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&exclude=current,minutely,hourly&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`);
+    const data = await res.json();
+    console.log("Data: ", data);
+    setForecastData(data.daily);
+  }
+
+  function handleInputChange(event) {
+    setSearchInput(event.target.value);
   };
 
-  const handleSearchClick = (e) => {
+  function handleFormSubmit(event) {
+    event.preventDefault();
     setSearchTerm(searchInput);
   };
-
-  const dailyForecast = useFetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
-  );
-
-  const weeklyForecast = useFetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
-  );
-
-  console.log("dailyForecast", dailyForecast);
-  console.log("weeklyForecast", weeklyForecast);
-
-  if (weeklyForecast.isLoading) {
-    return <div> Loading ... </div>;
-  }
 
   return (
     <div className={css.App}>
       <h1>383 Weather App</h1>
+      <form onSubmit={handleFormSubmit}>
+        <input type="text" placeholder="enter town/post code" className={css.userInput} onChange={handleInputChange}/>
+        <button type="submit" className={css.searchButton}>Submit</button>
+      </form>
       <main className="container">
-        {!weeklyForecast.isLoading && 
-          weeklyForecast.data.daily.map((day) => {
+        {console.log("Forecast data: ", forecastData)}
+        {forecastData && 
+          forecastData.map((day) => {
             return <Card dailyForecast={day} />
           })
         }
