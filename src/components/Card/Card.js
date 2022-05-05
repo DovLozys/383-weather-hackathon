@@ -8,7 +8,7 @@ import { useState } from "react";
 function Card({ dailyForecast }) {
   const optionsDay = { weekday: "long" };
   const optionsMonth = { month: "long" };
-  
+
   const fullDay = new Intl.DateTimeFormat("en-GB", optionsDay).format(
     dailyForecast.dt * 1000
   );
@@ -26,7 +26,9 @@ function Card({ dailyForecast }) {
     <div className={css.card}>
       <div className={css.cardHeader}>
         <h2>{fullDay}</h2>
-        <h2 className={css.date}>{shortDay} {fullMonth}</h2>
+        <h2 className={css.date}>
+          {shortDay} {fullMonth}
+        </h2>
       </div>
       <p className={css.forecast}>{dailyForecast.weather[0].description}</p>
       <div className={css.cardWeatherInfo}>
@@ -34,8 +36,8 @@ function Card({ dailyForecast }) {
           {Math.round(dailyForecast.temp.day)}°C
         </p>
         <div className={css.minmax}>
-          <p>Max: {dailyForecast.temp.max}</p>
-          <p>Min: {dailyForecast.temp.min}</p>
+          <p>Max: {Math.round(dailyForecast.temp.max)}</p>
+          <p>Min: {Math.round(dailyForecast.temp.min)}</p>
         </div>
         <img src={iconURL} alt="weatherIcon" className={css.icon}></img>
 
