@@ -3,18 +3,24 @@ import css from "./card.module.css";
 import React from "react";
 
 function Card({ dailyForecast }) {
-  const date = new Date(dailyForecast.dt * 1000).toLocaleDateString();
-  const options = { weekday: "long" };
-  const day = new Intl.DateTimeFormat("en-GB", options).format(
+  const optionsDay = { weekday: "long" };
+  const optionsMonth = { month: "long" };
+  
+  const fullDay = new Intl.DateTimeFormat("en-GB", optionsDay).format(
     dailyForecast.dt * 1000
   );
+  const shortDay = new Date(dailyForecast.dt * 1000).getDate();
+  const fullMonth = new Intl.DateTimeFormat("en-GB", optionsMonth).format(
+    dailyForecast.dt * 1000
+  );
+
   const iconURL = `http://openweathermap.org/img/wn/${dailyForecast.weather[0].icon}@2x.png`;
 
   return (
     <div className={css.card}>
       <div className={css.cardHeader}>
-        <h2>{day}</h2>
-        <h3 className={css.date}>{date}</h3>
+        <h2>{fullDay}</h2>
+        <h2 className={css.date}>{shortDay} {fullMonth}</h2>
       </div>
       <p className={css.forecast}>{dailyForecast.weather[0].description}</p>
       <div className={css.cardWeatherInfo}>
