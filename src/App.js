@@ -45,7 +45,7 @@ function App() {
 
   const fetchWeeklyForecast = async () => {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${cordinates.lat}&lon=${cordinates.lon}&exclude=current,minutely,hourly&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
     );
     const data = await response.json();
     console.log(data);
