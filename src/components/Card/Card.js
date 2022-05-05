@@ -1,6 +1,9 @@
 import css from "./card.module.css";
+import { Button } from "react-bootstrap";
 
 import React from "react";
+import DetailedCard from "../DetailedCard";
+import { useState } from "react";
 
 function Card({ dailyForecast }) {
   const date = new Date(dailyForecast.dt * 1000).toLocaleDateString();
@@ -9,6 +12,9 @@ function Card({ dailyForecast }) {
     dailyForecast.dt * 1000
   );
   const iconURL = `http://openweathermap.org/img/wn/${dailyForecast.weather[0].icon}@2x.png`;
+  //   const [show, setShow] = useState(false);
+  //   const handleClose = () => setShow(false);
+  //   const handleShow = () => setShow(true);
 
   return (
     <div className={css.card}>
@@ -26,6 +32,8 @@ function Card({ dailyForecast }) {
           <p>Min: {dailyForecast.temp.min}</p>
         </div>
         <img src={iconURL} alt="weatherIcon" className={css.icon}></img>
+
+        <DetailedCard dailyForecast={dailyForecast} />
       </div>
     </div>
   );
