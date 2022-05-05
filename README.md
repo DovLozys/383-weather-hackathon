@@ -15,7 +15,7 @@ The demo can be viewed here : LINK
 ### Installing
 
 1. Install Node.js from https://nodejs.org/en/
-2. Clone both this repo https://github.com/reduktorius/383-weather-hackathon
+2. Clone this repo https://github.com/reduktorius/383-weather-hackathon
 3. Open the repository in the integrated development environment ( preferably Visual Studio Code)
 4. Run the code below
 
