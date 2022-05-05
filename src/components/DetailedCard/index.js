@@ -38,22 +38,28 @@ function DetailedCard({ dailyForecast }) {
               {Math.round(dailyForecast.temp.day)}°C
             </p>
             <div className={css.minmax}>
-              <p>Max: {dailyForecast.temp.max}</p>
-              <p>Min: {dailyForecast.temp.min}</p>
+              <p>Max: {Math.round(dailyForecast.temp.max)}°C</p>
+              <p>Min: {Math.round(dailyForecast.temp.min)}°C</p>
             </div>
             <div className={css.suntimes}>
               <p>
                 Sunrise:{" "}
-                {new Date(dailyForecast.sunrise * 1000).toLocaleTimeString()}
+                {new Date(dailyForecast.sunrise * 1000).toLocaleTimeString(
+                  "en-US",
+                  { hour: "numeric", minute: "numeric" }
+                )}
               </p>
               <p>
                 Sunset:{" "}
-                {new Date(dailyForecast.sunset * 1000).toLocaleTimeString()}
+                {new Date(dailyForecast.sunset * 1000).toLocaleTimeString(
+                  "en-US",
+                  { hour: "numeric", minute: "numeric" }
+                )}
               </p>
             </div>
             <p>Cloud cover: {dailyForecast.clouds}%</p>
-            <img src={iconURL} alt="weatherIcon" className={css.icon}></img>
           </div>
+          <img src={iconURL} alt="weatherIcon" className={css.icon}></img>
         </Modal.Body>
       </Modal>
     </>
